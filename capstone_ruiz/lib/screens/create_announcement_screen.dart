@@ -25,10 +25,30 @@ class _CreateAnnouncementScreenState
  
   void _publishAnnouncement() {
     if (_formKey.currentState!.validate()) {
+      final now = DateTime.now();
+ 
+      const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ];
+ 
+      final formattedDate =
+          '${months[now.month - 1]} ${now.day}, ${now.year}';
+ 
       final announcement = {
         'title': _titleController.text.trim(),
         'content': _contentController.text.trim(),
-        'date': DateTime.now(),
+        'date': formattedDate,
       };
  
       Navigator.pop(context, announcement);
@@ -77,7 +97,7 @@ class _CreateAnnouncementScreenState
                 ),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return 'Please enter an announcement title';
+                    return 'Please enter announcement title';
                   }
                   return null;
                 },
