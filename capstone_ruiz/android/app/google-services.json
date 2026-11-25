@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "340104707344",
+    "project_id": "capstone-ruiz-7324d",
+    "storage_bucket": "capstone-ruiz-7324d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340104707344:android:3f9b983b5ddd46621e7995",
+        "android_client_info": {
+          "package_name": "com.example.capstone_ruiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcU-gEKw_Uw-P_PBBbVsWxgdOGNu-E5-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
