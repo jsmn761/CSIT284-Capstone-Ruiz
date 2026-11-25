@@ -1,3 +1,5 @@
+import 'package:capstone_ruiz/data/dummy_announcements.dart';
+import 'package:capstone_ruiz/widgets/announcement_card.dart';
 import 'package:flutter/material.dart';
 import 'announcement_detail_screen.dart';
 
@@ -13,19 +15,46 @@ class AnnouncementScreen extends StatelessWidget {
       foregroundColor: Colors.white,
     ),
 
-    body: Center(
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const AnnouncementDetailScreen(),
+    body: ListView(
+      children: [
+        const Padding(
+          padding: EdgeInsetsGeometry.fromLTRB(16, 24, 16, 8),
+          child: Text('Latest Announcements',
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+          ),
+          ),
+        const Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 16),
+            child: Text(
+              'Stay updated with the latest campus news and reminders.',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
               ),
-          );
-        }, 
-        
-        child: const Text('View Announcement'),
-     ),
+            ),
+          ),
+          const SizedBox(
+            height: 12
+          ),
+          ...dummyAnnouncements.map((announcement){
+            return AnnouncementCard(
+              announcement: announcement, 
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) {
+                  return AnnouncementDetailScreen(announcement: announcement,
+                  );
+                },
+                ),
+                );
+              },
+              );
+          }),
+      ],
     ),
    );
   }
